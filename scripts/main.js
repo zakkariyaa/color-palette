@@ -5,6 +5,7 @@ import { changeSpecificColor } from './changeSpecificColor.js';
 import { removeSpecificColor } from './removeSpecificColor.js';
 import { lockSpecificColor } from './lockSpecificColor.js';
 import { shadesSpecificColor } from './shadesSpecificColor.js';
+import { handleColorPicker } from './handleColorPicker.js';
 
 // locked color(s)
 const lockedColors = {};
@@ -55,10 +56,8 @@ headerEl.addEventListener('click', (e) => {
 colorPalette.addEventListener('click', (e) => {
   // Change the color of the clicked element
   // div: the div color is clicked, icon: the icon is clicked
-  if (e.target.className.startsWith('color ')) {
-    changeSpecificColor(e, 'div');
-  } else if (e.target.className === 'uil uil-redo') {
-    changeSpecificColor(e, 'icon');
+  if (e.target.className === 'uil uil-redo') {
+    changeSpecificColor(e);
   }
 
   // Remove the clicked color from palette
@@ -84,4 +83,24 @@ colorPalette.addEventListener('click', (e) => {
   } else if (e.target.className === 'uil uil-palette') {
     shadesSpecificColor(e, 'color', colorPalette);
   }
+
+  // display color picker when color is selected
+  if (e.target.className === 'hex-code') {
+    handleColorPicker(e);
+  }
 });
+
+// show icon buttons on hover
+const containerDivs = colorPalette.getElementsByClassName('container-div');
+
+for (let i = 0; i < containerDivs.length; i++) {
+  containerDivs[i].addEventListener('mouseover', () => {
+    containerDivs[i].classList.add('show-icons');
+  });
+}
+
+for (let i = 0; i < containerDivs.length; i++) {
+  containerDivs[i].addEventListener('mouseout', () => {
+    containerDivs[i].classList.remove('show-icons');
+  });
+}

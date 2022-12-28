@@ -38,18 +38,24 @@ export const generateFiveColors = () => {
     hexText.className = 'hex-code';
     hexText.textContent = currentColor.slice(1);
 
+    const colorPicker = document.createElement('input');
+    colorPicker.type = 'color';
+    colorPicker.value = currentColor;
+    colorPicker.id = 'color-picker';
+
     const colorDiv = document.createElement('div');
     colorDiv.classList.add('color');
     colorDiv.classList.add(`color${i + 1}`);
 
     colorDiv.style.background = currentColor;
 
-    textDiv.append(redoSpan);
-    textDiv.append(lockSpan);
     textDiv.append(removeSpan);
-    textDiv.append(copySpan);
     textDiv.append(shadesSpan);
+    textDiv.append(copySpan);
+    textDiv.append(lockSpan);
+    textDiv.append(redoSpan);
     textDiv.append(hexText);
+    textDiv.append(colorPicker);
 
     containerDiv.append(colorDiv);
     containerDiv.append(textDiv);

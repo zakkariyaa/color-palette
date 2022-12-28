@@ -49,13 +49,13 @@ export const shadesSpecificColor = (e, state, colorPalette) => {
 
       const newDivColor = createDivColor(divColorNumber, backgroundHexColor);
 
-      // we also need to update the hexcode and icon of the new divColor
+      // we also need to update the hex code and icon of the new divColor
       const shadesIcon = containerDiv.children[1].children[4].children[0];
-      const hexCode = containerDiv.children[1].children[5];
+      const hexText = containerDiv.children[1].children[5];
 
       containerDiv.replaceChild(newDivColor, divColor);
       shadesIcon.className = 'uil uil-apps';
-      hexCode.textContent = backgroundHexColor.slice(1);
+      hexText.textContent = backgroundHexColor.slice(1);
     });
   } else {
     const containerDiv = e.target.parentElement.parentElement.parentElement;
