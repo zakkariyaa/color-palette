@@ -6,6 +6,8 @@ import { removeSpecificColor } from './removeSpecificColor.js';
 import { lockSpecificColor } from './lockSpecificColor.js';
 import { shadesSpecificColor } from './shadesSpecificColor.js';
 import { handleColorPicker } from './handleColorPicker.js';
+import { hexToRgb } from './colorConversion.js';
+import { checkBrightness } from './colorContrastCheck.js';
 
 // locked color(s)
 const lockedColors = {};
@@ -15,8 +17,18 @@ const lockedColors = {};
 const colorPalette = document.querySelector('.color-palette');
 
 const displayColors = (obj) => {
-  // colorPalette.innerHTML = '';
   for (let el of Object.values(obj)) {
+    const backroundColor = el.children[0].style.background
+      .slice(4, -1)
+      .split(',');
+
+    const brightnessLevel = checkBrightness(backroundColor);
+    const textDiv = el.children[1];
+
+    brightnessLevel < 130
+      ? (textDiv.style.color = '#fff')
+      : (textDiv.style.color = '#000');
+
     colorPalette.append(el);
   }
 };
@@ -79,9 +91,7 @@ colorPalette.addEventListener('click', (e) => {
 
   // view shades and tints of specific color
   if (e.target.className === 'uil uil-apps') {
-    shadesSpecificColor(e, 'shades', colorPalette);
-  } else if (e.target.className === 'uil uil-palette') {
-    shadesSpecificColor(e, 'color', colorPalette);
+    shadesSpecificColor(e, colorPalette);
   }
 
   // display color picker when color is selected

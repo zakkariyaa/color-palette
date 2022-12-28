@@ -102,8 +102,16 @@ header span {
   font-size: 1.4rem;
   margin-right: 1rem;
   cursor: pointer;
-  color: #0f3c4c;
+  /* color: #0f3c4c; */
 }
+
+/* .color-palette .text-div .icons-light {
+  color: #fff;
+}
+
+.color-palette .text-div .icons-dark {
+  color: #000;
+} */
 
 .color-palette .text-div span:hover {
   transform: scale(1.5);

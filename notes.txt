@@ -8,6 +8,7 @@ the free space equally.
 functionality
 
 - add an element bar between color divs (+) that would add extra color when clicked
+    - try this formula:  (colour1+colour2)/2=newColour
 
 - color div should reflect on color picker change
 
