@@ -1,0 +1,8 @@
+- when an item is removed, rest of the items should take up
+the free space equally.
+    - try giving elements same width. 20% each & set flex: 1; [DONE]
+
+- button elements should have a tooltip showing info about their
+functionality
+
+- update divcolor to the latest hexcode when changing through clicking [DONE]
