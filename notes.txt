@@ -5,11 +5,15 @@ the free space equally.
 - update divcolor to the latest hexcode when changing through clicking [DONE]
 
 - button elements should have a tooltip showing info about their
-functionality
+functionality [DONE]
 
 - add an element bar between color divs (+) that would add extra color when clicked
-    - try this formula:  (colour1+colour2)/2=newColour
+    - try this formula:  (colour1+colour2)/2=newColour (nataliarusu)
 
-- color div should reflect on color picker change
+- color div should reflect on color picker change [DONE]
 
 - export styles in three formats: .json, .txt file, and css variables
+
+- background color brightness should be gauged to find appropriate text color [DONE]
+
+- edge case need fixing: color choosen from shades should be updated its locked status [DONE]

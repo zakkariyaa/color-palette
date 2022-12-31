@@ -6,7 +6,7 @@ import { removeSpecificColor } from './removeSpecificColor.js';
 import { lockSpecificColor } from './lockSpecificColor.js';
 import { shadesSpecificColor } from './shadesSpecificColor.js';
 import { handleColorPicker } from './handleColorPicker.js';
-import { hexToRgb } from './colorConversion.js';
+import { handleExport } from './handleExport.js';
 import { checkBrightness } from './colorContrastCheck.js';
 
 // locked color(s)
@@ -18,16 +18,28 @@ const colorPalette = document.querySelector('.color-palette');
 
 const displayColors = (obj) => {
   for (let el of Object.values(obj)) {
+    // check background color brightness to find appropriate text color
     const backroundColor = el.children[0].style.background
       .slice(4, -1)
       .split(',');
 
     const brightnessLevel = checkBrightness(backroundColor);
     const textDiv = el.children[1];
+    const tooltips = [...textDiv.querySelectorAll('div p')];
 
-    brightnessLevel < 130
-      ? (textDiv.style.color = '#fff')
-      : (textDiv.style.color = '#000');
+    if (brightnessLevel < 130) {
+      textDiv.style.color = '#fff';
+      for (let tooltip of tooltips) {
+        tooltip.style.background = '#000';
+        tooltip.style.color = '#fff';
+      }
+    } else {
+      textDiv.style.color = '#000';
+      for (let tooltip of tooltips) {
+        tooltip.style.background = '#000';
+        tooltip.style.color = '#fff';
+      }
+    }
 
     colorPalette.append(el);
   }
@@ -64,10 +76,16 @@ headerEl.addEventListener('click', (e) => {
 });
 
 // **************************************
+// Export section
+const exportDropdown = document.querySelector('#export');
+exportDropdown.addEventListener('change', (e) => {
+  handleExport(e);
+});
+
+// **************************************
 // Color palette icon functionalities section (copy, redo, remove...)
 colorPalette.addEventListener('click', (e) => {
   // Change the color of the clicked element
-  // div: the div color is clicked, icon: the icon is clicked
   if (e.target.className === 'uil uil-redo') {
     changeSpecificColor(e);
   }
@@ -86,12 +104,12 @@ colorPalette.addEventListener('click', (e) => {
   if (e.target.className === 'uil uil-lock-open-alt') {
     lockSpecificColor(e, lockedColors, 'open');
   } else if (e.target.className === 'uil uil-lock') {
-    lockSpecificColor(e, lockedColors, 'closed');
+    lockSpecificColor(e, lockedColors, 'locked');
   }
 
   // view shades and tints of specific color
   if (e.target.className === 'uil uil-apps') {
-    shadesSpecificColor(e, colorPalette);
+    shadesSpecificColor(e, colorPalette, lockedColors);
   }
 
   // display color picker when color is selected

@@ -54,9 +54,19 @@ header span {
 }
 
 .header-icons .save-color:hover .save-color-tooltip,
-.header-icons .export-color:hover .export-color-tooltip,
 .header-icons .show-saved-color:hover .show-color-tooltip {
   visibility: visible;
+}
+
+.export-color {
+  margin-left: 0.5rem;
+}
+
+.export-color #export {
+  padding: 0.6rem;
+  border-radius: 0.4rem;
+  border: 1px solid grey;
+  font-size: 1rem;
 }
 
 /* COLOR PALETTE SECTION */
@@ -88,33 +98,68 @@ header span {
   align-items: center;
 }
 
-.color-palette .text-div p {
+.color-palette .text-div div {
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+
+.color-palette .text-div div p {
+  width: 7rem;
+  padding: 0.3rem;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  text-align: center;
+  position: absolute;
+  text-align: center;
+  left: -10px;
+  top: -36px;
+
+  z-index: 1;
+  visibility: hidden;
+}
+
+.color-palette .text-div .shades-div p {
+  top: 5px;
+}
+
+.color-palette .text-div .copy-div p {
+  top: 46px;
+}
+
+.color-palette .text-div .lock-div p {
+  top: 107px;
+}
+
+.color-palette .text-div .redo-div p {
+  top: 150px;
+}
+
+.color-palette .text-div .redo-div p {
+  top: 150px;
+}
+
+.color-palette .text-div .hex-div p {
+  top: 240px;
+}
+
+.color-palette .text-div div:hover p,
+.color-palette .text-div div:hover span {
+  visibility: visible;
+}
+
+.color-palette .text-div div span {
+  display: inline-block;
   font-size: 1.2rem;
-  font-weight: bold;
-  letter-spacing: 0.2rem;
-  margin-top: 4rem;
   text-transform: uppercase;
   cursor: pointer;
 }
 
-.color-palette .text-div span {
-  display: inline-block;
-  font-size: 1.4rem;
-  margin-right: 1rem;
-  cursor: pointer;
-  /* color: #0f3c4c; */
-}
-
-/* .color-palette .text-div .icons-light {
-  color: #fff;
-}
-
-.color-palette .text-div .icons-dark {
-  color: #000;
-} */
-
-.color-palette .text-div span:hover {
+.color-palette .text-div div span:hover {
   transform: scale(1.5);
+}
+
+.color-palette .text-div .hex-div {
+  margin-top: 3rem;
 }
 
 /* hide color picker */

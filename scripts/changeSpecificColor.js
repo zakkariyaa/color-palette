@@ -4,10 +4,12 @@ import { checkBrightness } from './colorContrastCheck.js';
 
 export const changeSpecificColor = (e) => {
   // don't allow locked colors to be changed
-  const divColor = e.target.parentElement.parentElement.previousSibling;
+  const divColor =
+    e.target.parentElement.parentElement.parentElement.previousSibling;
 
   const lockedColor =
-    divColor.nextSibling.children[1].children[0].className === 'uil uil-lock';
+    divColor.nextSibling.children[3].children[0].children[0].className ===
+    'uil uil-lock';
 
   if (!lockedColor) {
     const currentColor = getRandomColor();
@@ -21,7 +23,11 @@ export const changeSpecificColor = (e) => {
       ? (textDiv.style.color = '#fff')
       : (textDiv.style.color = '#000');
 
-    divColor.nextSibling.children[5].textContent = currentColor.slice(1);
-    divColor.nextSibling.children[6].value = currentColor;
+    // update color div, hextext & colorpicker value
+    const hexText = divColor.nextSibling.children[5].children[0];
+    hexText.textContent = currentColor.slice(1);
+
+    const colorPicker = divColor.nextSibling.children[6];
+    colorPicker.value = currentColor;
   }
 };

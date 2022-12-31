@@ -11,11 +11,15 @@ const createDivColor = (divColorNumber, divColorHex) => {
   return newDivColor;
 };
 
-export const shadesSpecificColor = (e, colorPalette) => {
-  const containerDiv = e.target.parentElement.parentElement.parentElement;
-  const divColor = e.target.parentElement.parentElement.previousSibling;
+export const shadesSpecificColor = (e, colorPalette, lockedColors) => {
+  const containerDiv =
+    e.target.parentElement.parentElement.parentElement.parentElement;
+  const divColor =
+    e.target.parentElement.parentElement.parentElement.previousSibling;
   const elementHex =
-    '#' + e.target.parentElement.parentElement.children[5].textContent;
+    '#' +
+    e.target.parentElement.parentElement.parentElement.children[5].children[0]
+      .textContent;
 
   const tints = Object.values(generateTints(elementHex)).slice(1).reverse();
   const shades = Object.values(generateShades(elementHex));
@@ -34,7 +38,7 @@ export const shadesSpecificColor = (e, colorPalette) => {
   containerDiv.replaceChild(newDivColor, divColor);
 
   // hide all the icons and hextext when shades are displayed
-  const textDiv = e.target.parentElement.parentElement;
+  const textDiv = e.target.parentElement.parentElement.parentElement;
   textDiv.style.display = 'none';
 
   // change the color of the div to the choosen hex color
@@ -58,13 +62,24 @@ export const shadesSpecificColor = (e, colorPalette) => {
       ? (textDiv.style.color = '#fff')
       : (textDiv.style.color = '#000');
 
-    // we also need to update the hex code of the new divColor
-    const hexText = containerDiv.children[1].children[5];
+    // update hextext and colorpicker
+    const hexText = containerDiv.children[1].children[5].children[0];
+    const colorPicker = hexText.parentElement.nextSibling;
 
     containerDiv.replaceChild(newDivColor, divColor);
     hexText.textContent = backgroundHexColor.slice(1);
+    colorPicker.value = backgroundHexColor;
 
     // now display the icons and text back
     textDiv.style.display = 'flex';
+
+    // check if color is locked
+    const colorIsLocked =
+      textDiv.children[3].children[0].children[0].className === 'uil uil-lock';
+
+    if (colorIsLocked) {
+      const divColorKey = newDivColor.className.slice(-1);
+      lockedColors[divColorKey] = newDivColor;
+    }
   });
 };

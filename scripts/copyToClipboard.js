@@ -1,6 +1,6 @@
-// copy the hex code to clipboard
 export const copyToClipboard = (e) => {
-  const text = e.target.parentElement.parentElement.children[5];
+  const text =
+    e.target.parentElement.parentElement.parentElement.children[5].children[0];
 
   navigator.clipboard.writeText(text.textContent);
   e.target.className = 'uil uil-check';

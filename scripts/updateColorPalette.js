@@ -19,14 +19,14 @@ export const updateColorPalette = (lockedColorsObj) => {
 
   for (let i = 0; i < unlockedColors.length; i++) {
     const currentColor = getRandomColor();
-    const hexText = unlockedColors[i].nextSibling.children[5];
+    const hexText = unlockedColors[i].nextSibling.children[5].children[0];
     const colorPicker = unlockedColors[i].nextSibling.children[6];
 
     // check background color brightness to choose an appropriate text color
     // why 130? check the colorContrastCheck.js file sources
     const rgbColor = hexToRgb(currentColor);
     const brightnessLevel = checkBrightness(rgbColor);
-    const textDiv = hexText.parentElement;
+    const textDiv = hexText.parentElement.parentElement;
 
     unlockedColors[i].style.backgroundColor = currentColor;
     hexText.textContent = currentColor.slice(1);
