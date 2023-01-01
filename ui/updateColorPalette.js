@@ -1,6 +1,6 @@
 import { getRandomColor } from './getRandomColor.js';
 import { hexToRgb } from './colorConversion.js';
-import { checkBrightness } from './colorContrastCheck.js';
+import { checkBrightness } from './checkBrightness.js';
 
 const colorPalette = document.querySelector('.color-palette');
 
@@ -23,7 +23,7 @@ export const updateColorPalette = (lockedColorsObj) => {
     const colorPicker = unlockedColors[i].nextSibling.children[6];
 
     // check background color brightness to choose an appropriate text color
-    // why 130? check the colorContrastCheck.js file sources
+    // why 130? check the checkBrightness.js file sources
     const rgbColor = hexToRgb(currentColor);
     const brightnessLevel = checkBrightness(rgbColor);
     const textDiv = hexText.parentElement.parentElement;

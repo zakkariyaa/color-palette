@@ -1,6 +1,6 @@
 import { generateTints, generateShades } from './shadesAndTints.js';
 import { rgbToHex } from './colorConversion.js';
-import { checkBrightness } from './colorContrastCheck.js';
+import { checkBrightness } from './checkBrightness.js';
 
 const createDivColor = (divColorNumber, divColorHex) => {
   const newDivColor = document.createElement('div');

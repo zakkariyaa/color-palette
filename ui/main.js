@@ -7,23 +7,23 @@ import { lockSpecificColor } from './lockSpecificColor.js';
 import { shadesSpecificColor } from './shadesSpecificColor.js';
 import { handleColorPicker } from './handleColorPicker.js';
 import { handleExport } from './handleExport.js';
-import { checkBrightness } from './colorContrastCheck.js';
+import { checkBrightness } from './checkBrightness.js';
 
 // locked color(s)
 const lockedColors = {};
 
 // **************************************
-// Intialize five colors and display it on the page
+// Initialize five colors and display it on the page
 const colorPalette = document.querySelector('.color-palette');
 
 const displayColors = (obj) => {
   for (let el of Object.values(obj)) {
     // check background color brightness to find appropriate text color
-    const backroundColor = el.children[0].style.background
+    const backgroundColor = el.children[0].style.background
       .slice(4, -1)
       .split(',');
 
-    const brightnessLevel = checkBrightness(backroundColor);
+    const brightnessLevel = checkBrightness(backgroundColor);
     const textDiv = el.children[1];
     const tooltips = [...textDiv.querySelectorAll('div p')];
 
@@ -56,7 +56,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // **************************************
-// Header icon functionalities section (save, export color)
+// Header icon functionalities section (save, retrieve palette)
 const headerEl = document.querySelector('header');
 
 headerEl.addEventListener('click', (e) => {
@@ -66,7 +66,7 @@ headerEl.addEventListener('click', (e) => {
     localStorage.setItem('savedColors', JSON.stringify(colorEls));
   }
 
-  // export palette in json, css variables, and .txt format
+  // retrieve saved palette from local storage
   if (e.target.className === 'uil uil-bookmark') {
     const savedColors = JSON.parse(localStorage.getItem('savedColors'));
     if (savedColors) {
@@ -79,7 +79,7 @@ headerEl.addEventListener('click', (e) => {
 // Export section
 const exportDropdown = document.querySelector('#export');
 exportDropdown.addEventListener('change', (e) => {
-  handleExport(e);
+  handleExport(e, colorPalette);
 });
 
 // **************************************

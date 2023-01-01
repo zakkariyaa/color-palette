@@ -1,6 +1,6 @@
 import { getRandomColor } from './getRandomColor.js';
 import { hexToRgb } from './colorConversion.js';
-import { checkBrightness } from './colorContrastCheck.js';
+import { checkBrightness } from './checkBrightness.js';
 
 export const changeSpecificColor = (e) => {
   // don't allow locked colors to be changed
