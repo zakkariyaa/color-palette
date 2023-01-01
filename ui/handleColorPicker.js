@@ -1,5 +1,5 @@
-import { hexToRgb } from './colorConversion.js';
-import { checkBrightness } from './checkBrightness.js';
+import { hexToRgb } from '../utils/colorConversion.js';
+import { checkBrightness } from '../utils/checkBrightness.js';
 
 export const handleColorPicker = (e) => {
   const colorPicker = e.target.parentElement.nextSibling;

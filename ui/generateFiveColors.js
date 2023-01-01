@@ -1,4 +1,4 @@
-import { getRandomColor } from './getRandomColor.js';
+import { getRandomColor } from '../utils/getRandomColor.js';
 
 // generate five element colors
 export const generateFiveColors = () => {

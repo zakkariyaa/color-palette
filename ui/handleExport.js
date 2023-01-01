@@ -1,6 +1,5 @@
 // exporting styles in different formats: .json, .txt, and css variables
-
-import { rgbToHex } from './colorConversion.js';
+import { rgbToHex } from '../utils/colorConversion.js';
 
 const downloadPalette = (colors, fileName, option) => {
   const data = JSON.stringify(colors);

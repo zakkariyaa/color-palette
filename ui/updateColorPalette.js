@@ -1,6 +1,6 @@
-import { getRandomColor } from './getRandomColor.js';
-import { hexToRgb } from './colorConversion.js';
-import { checkBrightness } from './checkBrightness.js';
+import { getRandomColor } from '../utils/getRandomColor.js';
+import { hexToRgb } from '../utils/colorConversion.js';
+import { checkBrightness } from '../utils/checkBrightness.js';
 
 const colorPalette = document.querySelector('.color-palette');
 

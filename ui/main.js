@@ -7,7 +7,7 @@ import { lockSpecificColor } from './lockSpecificColor.js';
 import { shadesSpecificColor } from './shadesSpecificColor.js';
 import { handleColorPicker } from './handleColorPicker.js';
 import { handleExport } from './handleExport.js';
-import { checkBrightness } from './checkBrightness.js';
+import { checkBrightness } from '../utils/checkBrightness.js';
 
 // locked color(s)
 const lockedColors = {};
