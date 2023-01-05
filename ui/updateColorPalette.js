@@ -9,6 +9,10 @@ export const updateColorPalette = (lockedColorsObj) => {
   const lockedColors = Object.values(lockedColorsObj);
   const colorElements = colorPalette.getElementsByClassName('color');
 
+  // make the spacebar word color the color of the first divColor
+  const spacebarWord = document.querySelector('.spacebar');
+  let firstDivColorBg;
+
   const unlockedColors = [];
 
   for (let i = 0; i < colorElements.length; i++) {
@@ -21,6 +25,8 @@ export const updateColorPalette = (lockedColorsObj) => {
     const currentColor = getRandomColor();
     const hexText = unlockedColors[i].nextSibling.children[5].children[0];
     const colorPicker = unlockedColors[i].nextSibling.children[6];
+
+    i === 0 ? (firstDivColorBg = currentColor) : null;
 
     // check background color brightness to choose an appropriate text color
     // why 130? check the checkBrightness.js file sources
@@ -37,4 +43,6 @@ export const updateColorPalette = (lockedColorsObj) => {
 
     colorPicker.value = currentColor;
   }
+
+  spacebarWord.style.color = firstDivColorBg;
 };

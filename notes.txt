@@ -8,7 +8,7 @@ the free space equally.
 functionality [DONE]
 
 - add an element bar between color divs (+) that would add extra color when clicked
-    - try this formula:  (colour1+colour2)/2=newColour (nataliarusu)
+    - try this formula: (colour1+colour2)/2=newColour (nataliarusu)
 
 - color div should reflect on color picker change [DONE]
 
@@ -17,3 +17,5 @@ functionality [DONE]
 - background color brightness should be gauged to find appropriate text color [DONE]
 
 - edge case need fixing: color choosen from shades should be updated its locked status [DONE]
+
+- 'spacebar' header word bgcolor should be the first color of each spacebar tap

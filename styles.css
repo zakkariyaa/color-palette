@@ -67,6 +67,8 @@ header span {
   border-radius: 0.4rem;
   border: 1px solid grey;
   font-size: 1rem;
+  color: #fff;
+  background-color: #133c75;
 }
 
 /* COLOR PALETTE SECTION */
@@ -78,11 +80,78 @@ header span {
 
 .color-palette .container-div {
   position: relative;
-  width: 20%;
+  display: flex;
+  flex: 1 1 0;
   flex-grow: 1;
+  /* width: 20%; */
   box-shadow: 0 0 14px 0px rgb(0 0 0 / 5%);
 }
 
+.color-palette .content-div {
+  width: 100%;
+}
+
+/* add color bar styles */
+.color-palette .bar-div {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 70px;
+  height: 100%;
+}
+
+.color-palette .bar-div-right {
+  right: 1rem;
+}
+
+.color-palette .bar-div .add-span {
+  padding: 0.3rem 0.3rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid white;
+  text-align: center;
+}
+
+.color-palette .bar-div .add-span i {
+  font-size: 1.3rem;
+  border-radius: 50%;
+  padding: 0 0.3rem;
+  border: 1px solid gray;
+  cursor: pointer;
+}
+
+.color-palette .bar-div .add-span i:hover {
+  background: #e8ebee;
+}
+
+.color-palette .bar-div .add-span-right {
+  display: none;
+}
+
+.color-palette .bar-div .add-span-left {
+  margin-left: -1.4rem;
+}
+
+.color-palette > div:first-of-type .bar-div .add-span-left {
+  margin-left: 1rem;
+}
+
+.color-palette > div:last-of-type .bar-div .add-span-right {
+  display: inline-block;
+  margin-left: 1.5rem;
+}
+
+.color-palette .bar-div .add-span-left,
+.color-palette > div:last-of-type .bar-div .add-span-right {
+  visibility: hidden;
+}
+
+.color-palette .bar-div:hover .add-span-left,
+.color-palette > div:last-of-type .bar-div:hover .add-span-right {
+  visibility: visible;
+}
+
+/* div color section */
 .color-palette .color {
   width: 100%;
   height: 77vh;
@@ -91,7 +160,7 @@ header span {
 .color-palette .text-div {
   position: absolute;
   top: 18%;
-  left: 40%;
+  left: 30%;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -113,6 +182,8 @@ header span {
   text-align: center;
   left: -10px;
   top: -36px;
+  background: #000;
+  color: #fff;
 
   z-index: 1;
   visibility: hidden;
@@ -183,31 +254,25 @@ header span {
   visibility: hidden;
 }
 
-.show-icons .lock-span,
-.show-icons .remove-span,
-.show-icons .copy-span,
-.show-icons .shades-span,
-.show-icons .redo-span {
+.container-div:hover .lock-span,
+.container-div:hover .remove-span,
+.container-div:hover .copy-span,
+.container-div:hover .shades-span,
+.container-div:hover .redo-span {
   visibility: visible;
 }
 
 /* MEDIA QUERIES */
 /* TABLETS */
-@media (max-width: 820px) {
-  /* i couldn't make my flex wrap work :( */
-  .color-palette {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .color-palette .container-div {
-    width: 100%;
-  }
-  .color-palette .color {
-    height: 40vh;
+@media (max-width: 830px) {
+  header {
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 96;
   }
 
-  .tints-shades p {
-    height: 1.403rem;
+  header h3 {
+    font-size: 1.2rem;
   }
 }
 
@@ -217,6 +282,7 @@ header span {
     padding: 1rem 1rem 0.5rem 0.5rem;
     flex-wrap: wrap;
     gap: 2rem;
+    width: 98;
   }
 
   header h3 {
@@ -229,17 +295,5 @@ header span {
 
   header span {
     font-size: 1.6rem;
-  }
-
-  .color-palette {
-    grid-template-columns: 1fr 1fr;
-  }
-  .color-palette .text-div {
-    top: 12%;
-    left: 38%;
-  }
-  .color-palette .text-div p {
-    font-size: 1rem;
-    margin-top: 2rem;
   }
 }

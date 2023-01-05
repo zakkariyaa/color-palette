@@ -14,12 +14,13 @@ export const lockSpecificColor = (e, lockedColors, state) => {
 
     e.target.className = 'uil uil-lock';
   } else {
-    const divColorKey =
-      e.target.parentElement.parentElement.parentElement.previousSibling.className.slice(
-        -1
-      );
+    const divColor =
+      e.target.parentElement.parentElement.parentElement.previousSibling;
+    const colors = Array.from(colorPalette.getElementsByClassName('color'));
+    const divColorNumber = colors.indexOf(divColor) + 1;
 
-    delete lockedColors[divColorKey];
+    delete lockedColors[divColorNumber];
+
     e.target.className = 'uil uil-lock-open-alt';
   }
 };
