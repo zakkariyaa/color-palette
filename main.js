@@ -1,14 +1,14 @@
-import { generateFiveColors } from './generateFiveColors.js';
-import { updateColorPalette } from './updateColorPalette.js';
-import { copyToClipboard } from './copyToClipboard.js';
-import { changeSpecificColor } from './changeSpecificColor.js';
-import { removeSpecificColor } from './removeSpecificColor.js';
-import { lockSpecificColor } from './lockSpecificColor.js';
-import { shadesSpecificColor } from './shadesSpecificColor.js';
-import { handleColorPicker } from './handleColorPicker.js';
-import { handleExport } from './handleExport.js';
-import { checkBrightness } from '../utils/checkBrightness.js';
-import { addColor } from './addColor.js';
+import { generateFiveColors } from './ui/generateFiveColors.js';
+import { updateColorPalette } from './ui/updateColorPalette.js';
+import { copyToClipboard } from './ui/copyToClipboard.js';
+import { changeSpecificColor } from './ui/changeSpecificColor.js';
+import { removeSpecificColor } from './ui/removeSpecificColor.js';
+import { lockSpecificColor } from './ui/lockSpecificColor.js';
+import { shadesSpecificColor } from './ui/shadesSpecificColor.js';
+import { handleColorPicker } from './ui/handleColorPicker.js';
+import { handleExport } from './ui/handleExport.js';
+import { checkBrightness } from './utils/checkBrightness.js';
+import { addColor } from './ui/addColor.js';
 
 // *************************************
 // locked color(s)
