@@ -1,8 +1,7 @@
 # Colour Palette Generator
 ![webpage screenshot](https://github.com/zakkariyaa/color-palette/blob/master/assets/colour-palette.png)<br /><br />
 Generate millions of beautiful colour palettes with clicks! <br />
-This project was built as part of ***FAC's*** bootcamp admission projects. <br />
-Its feature rich and we tried to emulate the ***coolers.co*** website as close as possible.
+This is a feature rich project and I tried to emulate the ***coolers.co*** website as close as possible.
 
 ## Tech Stack
 1. <code>HTML</code><br />
@@ -29,7 +28,7 @@ Its feature rich and we tried to emulate the ***coolers.co*** website as close a
  - Colour conversions and how to handle different colour formats
 
 ## Improvements *(optional)*
-If i had more time i would try to improve the following things:
+If I had more time I would try to improve the following things:
 - Complete the <code>addColour</code> functionality so the changes are dynamically reflected on the page <br />
 - Refactor the codebase to use higher order function in some places instead of loops
 - Add the rest of the Coolers.co website features
