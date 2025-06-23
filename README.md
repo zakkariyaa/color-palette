@@ -14,13 +14,13 @@ This is a feature rich project and I tried to emulate the ***coolors.co*** websi
 **3. Export Palettes in three different formats: <code>JSON</code>, <code>CSS</code>, and <code>Text</code>** <br />
 **4. Add, remove, lock, edit, and view shades and tints of a specific colour** <br />
 
-## Installation Guide
-- Clone the repository by running this command on your terminal
-  ``` terminal
-  git clone https://github.com/zakkariyaa/color-palette
-  ```
-- Open the cloned repository in your preferred code editor
-- You can also run the Index.html file through your browser if needed
+## 🚀 Getting Started
+
+1. Clone the repository by running this command on your terminal:
+    ```bash
+    git clone https://github.com/zakkariyaa/color-palette
+    ```
+2. Open the project in your preferred code editor or just double-click `index.html` to launch it in your browser.
 
 ## 📚 What I Learned
 - How to structure a front-end project in a clean, modular way
