@@ -1,7 +1,7 @@
 # Colour Palette Generator
-![webpage screenshot](https://github.com/zakkariyaa/color-palette/blob/master/assets/colour-palette.png)<br /><br />
 Generate millions of beautiful colour palettes with clicks! <br />
-This is a feature rich project and I tried to emulate the ***coolors.co*** website as close as possible.
+This is a feature rich project and I tried to emulate the ***coolors.co*** website as close as possible. <br /><br />
+![demo gif](https://github.com/zakkariyaa/color-palette/blob/master/output.gif)
 
 ## Tech Stack
 1. <code>HTML</code><br />
